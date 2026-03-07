@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT Car Rental | Delhi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PPT Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-yellow">Book Now</a>
+    </header>
+
+    <section id="home" class="hero">
+        <h1><span>PawanPutra</span> Travel</h1>
+        <h3 style="margin-bottom: 15px; letter-spacing: 1px; color: var(--text-dark);">PREMIER DELHI CAR RENTAL</h3>
+        <p>Elevate Your Journey. Premium, transparent, and hassle-free car rentals across Delhi and beyond.</p>
+        <a href="#contact" class="btn-yellow">Book Your Cab</a>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Us</h2>
+            
+            <div class="about-card about-featured">
+                <div class="carousel-container">
+                    <img src="about-company.jpg" alt="Pramod Kumar Rai and Team" class="about-img slide active">
+                    <img src="about-company-2.jpg" alt="Our Fleet" class="about-img slide">
+                    <img src="delivery.jpg" alt="New Car Delivery - Pramod Kumar Rai" class="about-img slide">
+                    
+                    <button class="prev-arrow" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next-arrow" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+                
+                <div class="about-text">
+                    <h3>About The Founder & Company</h3>
+                    <p>
+                        Founded by visionary entrepreneur <strong>Pramod Kumar Rai</strong>, PPT Car Rental has grown to become Delhi’s most trusted and reliable travel partner. Built on a foundation of years of dedicated experience in the transportation industry, our company was established with a clear, unwavering vision: to redefine the way people travel by providing premium, fully transparent, and completely hassle-free car rental services across the National Capital Region and beyond.
+                    </p>
+                    <p>
+                        We understand that a journey is about much more than just getting from point A to point B—it is about the experience, the comfort, and your peace of mind. That is why we constantly evaluate and upgrade our extensive fleet of vehicles. From compact sedans for zipping through city traffic to spacious premium SUVs for family vacations, every car is meticulously inspected, well-maintained, and sanitized to ensure your absolute safety and luxury.
+                    </p>
+                    <p>
+                        Our team of professional, background-verified drivers are the backbone of our service. They are highly skilled at navigating both bustling city streets and long highway routes, and are trained to provide courteous, punctual, and highly respectful service to every guest.
+                    </p>
+                    <p>
+                        Whether you need a quick local drop-off, a dedicated car for a full day of corporate meetings, or a comfortable vehicle for a long outstation getaway, PPT Car Rental has you covered. We pride ourselves on combining this top-tier service with the most competitive and honest rates in the city—meaning no hidden fees, no last-minute surprises, just a smooth ride every time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="clients" class="clients-section">
+            <h2 class="section-title">Trusted By</h2>
+            <div class="client-logos">
+                <img src="client1.png" alt="Client Company 1">
+                <img src="client2.png" alt="Client Company 2">
+                <img src="client3.png" alt="Client Company 3">
+            </div>
+        </section>
+
+        <section id="pricing">
+            <h2 class="section-title">Transparent Pricing</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle Type</th>
+                        <th>Rate Per KM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Compact Sedan (Dzire, Etios)</td>
+                        <td>₹12/km</td>
+                    </tr>
+                    <tr>
+                        <td>Premium SUV (Innova Crysta)</td>
+                        <td>₹18/km</td>
+                    </tr>
+                    <tr>
+                        <td>Luxury Car</td>
+                        <td>₹25/km</td>
+                    </tr>
+                    <tr>
+                        <td>Tempo Traveller</td>
+                        <td>₹24/km</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title">Our Fleet / Gallery</h2>
+            
+            <div class="gallery-slider-wrapper">
+                <button class="gallery-arrow left-arrow" onclick="slideGallery(-1)">&#10094;</button>
+                
+                <div class="gallery-track" id="galleryTrack">
+                    <img src="car1.jpg" alt="Car 1">
+                    <img src="car2.jpg" alt="Car 2">
+                    <img src="car3.jpg" alt="Car 3">
+                    <img src="car4.jpg" alt="Car 4">
+                    <img src="car5.jpg" alt="Car 5">
+                    <img src="car6.jpg" alt="Car 6">
+                </div>
+
+                <button class="gallery-arrow right-arrow" onclick="slideGallery(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Book & Contact</h2>
+            <div class="grid-2">
+                <div class="contact-form">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="customer_name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" name="customer_phone" required placeholder="Enter your 10-digit mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="customer_email" required placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label>Date & Time of Travel</label>
+                            <input type="datetime-local" name="date_time" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Car Type</label>
+                            <select name="car_type">
+                                <option>Compact Sedan</option>
+                                <option>Premium SUV</option>
+                                <option>Luxury Car</option>
+                                <option>Tempo Traveller</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pickup & Drop Location / Travel Query</label>
+                            <textarea name="travel_query" rows="3" required placeholder="Enter pickup, destination, and any specific queries"></textarea>
+                        </div>
+                        <button type="submit" class="btn-yellow full-width">Submit Booking Request</button>
+                        <p class="form-note">*Your booking details will be instantly emailed to us.</p>
+                    </form>
+                </div>
+
+                <div class="contact-details">
+                    <div class="contact-block">
+                        <h3>Connect Directly</h3>
+                        <a href="https://wa.me/919650473759" class="btn-whatsapp-direct" target="_blank">
+                            💬 Chat on WhatsApp
+                        </a>
+                    </div>
+                    <div class="contact-block">
+                        <h3>Contact Info</h3>
+                        <p><strong>📍 Address:</strong> New Delhi, Delhi, India</p>
+                        <p><strong>📞 Phone:</strong> +91 9650473759</p>
+                        <p><strong>✉️ Email:</strong> pawanputratravel@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 PPT Car Rental. All Rights Reserved.</p>
+        <p>Premium travel and outstation car rentals in Delhi, managed by Pramod Kumar Rai.</p>
+    </footer>
+
+    <a href="https://wa.me/919650473759" class="whatsapp-float" target="_blank">
+        💬 WhatsApp Us
+    </a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("Pwuk1OluTYMPhVI83"); 
+       })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

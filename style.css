@@ -851,3 +851,64 @@ td {
     .right-arrow { right: 5px; }
 
 }  
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.review-card {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-yellow);
+    text-align: center;
+}
+
+.stars {
+    color: #FFCC00;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.review-card p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.review-card h4 {
+    color: var(--text-dark);
+    font-weight: bold;
+}
+.add-review-form {
+    background: #f9f9f9;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-review-form h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.add-review-form .form-group {
+    margin-bottom: 15px;
+}
+
+.add-review-form input, 
+.add-review-form select, 
+.add-review-form textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}

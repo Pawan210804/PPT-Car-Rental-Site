@@ -262,4 +262,34 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
     };
 
+
+    // ── 12. SCROLL ANIMATIONS (Intersection Observer) ────────
+    const animElems = document.querySelectorAll(
+        '.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-blur, .anim-zoom, .section-title'
+    );
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // animate only once
+            }
+        });
+    }, { threshold: 0.12 });
+
+    animElems.forEach(function (el) {
+        observer.observe(el);
+    });
+
+
+    // ── 13. STICKY HEADER BLUR ON SCROLL ─────────────────────
+    const siteHeader = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 60) {
+            siteHeader.classList.add('scrolled');
+        } else {
+            siteHeader.classList.remove('scrolled');
+        }
+    });
+
 }); // end DOMContentLoaded

@@ -2,9 +2,9 @@
 
     --primary-yellow: #FFCC00;
 
-    --bg-white: #FFFFFF;
+    --bg-white: #FAF7F2;
 
-    --bg-light: #F4F4F4;
+    --bg-light: #F2EDE6;
 
     --text-dark: #333333;
 
@@ -42,7 +42,10 @@ body {
 
 header {
 
-    background-color: var(--bg-white);
+    background: rgba(250, 247, 242, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(210, 190, 160, 0.25);
 
     padding: 15px 50px;
 
@@ -1058,7 +1061,7 @@ td {
 .best-tag {
     font-size: 11px;
     font-weight: 500;
-    background: #FFF8DC;
+    background: #f5ede0;
     color: #7a6000;
     border: 1px solid #FFD700;
     border-radius: 30px;
@@ -1131,7 +1134,7 @@ td {
 .pricing-note {
     margin-top: -40px;
     margin-bottom: 50px;
-    background: #fffbea;
+    background: #faf4e8;
     border-left: 4px solid var(--primary-yellow);
     padding: 12px 18px;
     font-size: 13px;
@@ -1387,7 +1390,7 @@ td {
     margin-bottom: 50px;
 }
 .founder-inner {
-    background: linear-gradient(135deg, #fffdf0 0%, #fff8dc 100%);
+    background: linear-gradient(135deg, #faf5ea 0%, #f5ede0 100%);
     border-left: 5px solid var(--primary-yellow);
     border-radius: 10px;
     padding: 36px 32px;
@@ -1464,7 +1467,7 @@ td {
 }
 .route-card--custom {
     border: 2px dashed var(--primary-yellow);
-    background: #fffdf0;
+    background: #faf5ea;
 }
 .route-icon { font-size: 28px; flex-shrink: 0; }
 .route-info { flex: 1; }
@@ -1875,8 +1878,8 @@ td {
         width: 75%;
         max-width: 300px;
         height: 100vh;
-        background: #fff;
-        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        background: #faf7f2;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.12);
         z-index: 1000;
         transition: right 0.35s ease;
         padding-top: 70px;
@@ -1899,8 +1902,8 @@ td {
         font-weight: 600;
     }
     #mainNav ul li a:hover {
-        background: #fffbe6;
-        color: #b8860b;
+        background: #f5efe4;
+        color: #a07030;
     }
 }
 
@@ -1913,3 +1916,233 @@ td {
     z-index: 999;
 }
 .nav-overlay.visible { display: block; }
+
+/* ══════════════════════════════════════════
+   SCROLL ANIMATIONS & BLUR EFFECTS
+══════════════════════════════════════════ */
+
+/* Base hidden state for animated elements */
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.anim-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.anim-fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.anim-blur {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(0.97);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+}
+.anim-zoom {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Stagger delays for grid items */
+.anim-delay-1 { transition-delay: 0.1s; }
+.anim-delay-2 { transition-delay: 0.2s; }
+.anim-delay-3 { transition-delay: 0.3s; }
+.anim-delay-4 { transition-delay: 0.4s; }
+.anim-delay-5 { transition-delay: 0.5s; }
+.anim-delay-6 { transition-delay: 0.6s; }
+
+/* Visible state — added by JS when in viewport */
+.anim-fade-up.in-view,
+.anim-fade-left.in-view,
+.anim-fade-right.in-view {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+.anim-blur.in-view {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+}
+.anim-zoom.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hero content entrance */
+.hero-content h1 {
+    animation: heroSlideUp 1s ease 0.3s both;
+}
+.hero-content h3 {
+    animation: heroSlideUp 1s ease 0.5s both;
+}
+.hero-content p {
+    animation: heroSlideUp 1s ease 0.7s both;
+}
+.hero-content .btn-yellow {
+    animation: heroSlideUp 1s ease 0.9s both;
+}
+@keyframes heroSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Trust bar slide in */
+.trust-bar {
+    animation: trustSlide 0.8s ease 1.1s both;
+}
+@keyframes trustSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Section titles */
+.section-title {
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--primary-yellow);
+    margin: 8px auto 0;
+    border-radius: 99px;
+    transition: width 0.6s ease 0.3s;
+}
+.section-title.in-view::after {
+    width: 60px;
+}
+
+/* Card hover lift effect (global) */
+.vehicle-card,
+.review-card,
+.blog-card,
+.route-card,
+.why-card,
+.faq-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.vehicle-card:hover,
+.review-card:hover,
+.blog-card:hover,
+.why-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
+}
+.route-card:hover {
+    transform: translateX(4px) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+}
+
+/* Shimmer effect on yellow buttons */
+.btn-yellow {
+    position: relative;
+    overflow: hidden;
+}
+.btn-yellow::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+.btn-yellow:hover::after {
+    left: 160%;
+}
+
+/* WhatsApp float pulse */
+.whatsapp-float {
+    animation: waPulse 2.5s ease-in-out infinite;
+}
+@keyframes waPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+    50%       { transform: scale(1.07); box-shadow: 0 6px 25px rgba(37,211,102,0.6); }
+}
+
+/* Pricing table row hover */
+tbody tr {
+    transition: background 0.2s ease;
+}
+tbody tr:hover {
+    background: #f7f0e4 !important;
+}
+
+
+/* ══════════════════════════════════════════
+   CREAMY OFF-WHITE OVERRIDES
+══════════════════════════════════════════ */
+
+/* Body warm background */
+body {
+    background-color: #f2ede6 !important;
+}
+
+/* Vehicle cards - soft creamy glass */
+.vehicle-card {
+    background: rgba(250, 247, 242, 0.9) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(200, 175, 140, 0.2) !important;
+}
+
+/* Review cards */
+.review-card {
+    background: rgba(250, 247, 242, 0.92) !important;
+    border: 1px solid rgba(200, 175, 140, 0.18) !important;
+}
+
+/* Blog cards */
+.blog-card {
+    background: rgba(250, 247, 242, 0.92) !important;
+    border: 1px solid rgba(200, 175, 140, 0.18) !important;
+}
+
+/* About section cards */
+.about-card {
+    background: rgba(250, 247, 242, 0.92) !important;
+}
+
+/* FAQ items */
+.faq-item {
+    background: rgba(250, 247, 242, 0.92) !important;
+    border: 1px solid rgba(200, 175, 140, 0.2) !important;
+}
+
+/* Contact form */
+.contact-form,
+.contact-details {
+    background: rgba(250, 247, 242, 0.92) !important;
+    border: 1px solid rgba(200, 175, 140, 0.18) !important;
+}
+
+/* Why cards */
+.why-card {
+    background: rgba(250, 247, 242, 0.88) !important;
+    border: 1px solid rgba(200, 175, 140, 0.15) !important;
+}
+
+/* Pricing table */
+.pricing-table {
+    background: rgba(250, 247, 242, 0.95) !important;
+}
+
+/* Founder quote card */
+.founder-quote {
+    background: rgba(250, 247, 242, 0.9) !important;
+    border-left: 4px solid var(--primary-yellow) !important;
+}
+
+/* Sticky header glow on scroll */
+header.scrolled {
+    background: rgba(250, 247, 242, 0.95) !important;
+    box-shadow: 0 4px 24px rgba(180, 150, 100, 0.12) !important;
+}

@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="OECi49PKKRMyCAg5qPKuxn7YkaUB-_Oi2eK_nMtBZds"/>
     <title>PPT Car Rental | Delhi</title>
 
-    <link rel="canonical" href="https://pawanputratravels.ppt-delhi.workers.dev/">
+    <link rel="canonical" href="https://pawanputratravel.in/">
   <link rel="icon" type="png" href="logo.png">
     <meta name="description" content="Book premium car rentals in Delhi with PawanPutra Travel. Managed by Pramod Kumar Rai, we offer transparent pricing on Sedans, SUVs, and Luxury cars.">
     <meta name="keywords" content="Car Rental Delhi, PawanPutra Travel, Pramod Kumar Rai, Innova Crysta Rental Delhi, Outstation Cabs Delhi">
@@ -14,7 +14,7 @@
     <meta property="og:title" content="PawanPutra Travel - Premier Delhi Car Rental">
     <meta property="og:description" content="Safe, transparent, and hassle-free car rentals across Delhi and beyond.">
     <meta property="og:image" content="logo.png"> 
-    <meta property="og:url" content="https://pawanputratravels.ppt-delhi.workers.dev/">
+    <meta property="og:url" content="https://pawanputratravel.in/">
     <link rel="stylesheet" href="style.css">
     <!-- Schema Markup for Local Business SEO -->
     <script type="application/ld+json">
@@ -23,7 +23,7 @@
       "@type": "LocalBusiness",
       "name": "PawanPutra Travel - PPT Car Rental",
       "description": "Premium car rental service in Delhi NCR. Sedans, SUVs, Innova Crysta and Tempo Traveller with verified drivers.",
-      "url": "https://pawanputratravels.ppt-delhi.workers.dev/",
+      "url": "https://pawanputratravel.in/",
       "telephone": "+919650473759",
       "email": "pawanputratravel@gmail.com",
       "address": {
@@ -667,57 +667,20 @@
         </section>
 
         <!-- ── WHATSAPP QUOTE CALCULATOR ── -->
-        <section class="calculator-section">
-            <h2 class="section-title">Get Instant Price Estimate</h2>
-            <p class="calc-intro">Select your car and destination — get an instant estimate and WhatsApp it directly to Pramod.</p>
-            <div class="calc-box">
-                <div class="calc-row">
-                    <div class="calc-group">
-                        <label>Select Car</label>
-                        <select id="calc-car" onchange="calcPrice()">
-                            <option value="sedan">Swift Dzire / Etios (Sedan)</option>
-                            <option value="ertiga">Maruti Ertiga (SUV)</option>
-                            <option value="innova">Toyota Innova Crysta (Premium)</option>
-                            <option value="tempo">Tempo Traveller (Group)</option>
-                        </select>
-                    </div>
-                    <div class="calc-group">
-                        <label>Trip Type</label>
-                        <select id="calc-type" onchange="calcPrice()">
-                            <option value="local">Local (80km / 8hrs)</option>
-                            <option value="agra">Delhi → Agra (~230km)</option>
-                            <option value="jaipur">Delhi → Jaipur (~280km)</option>
-                            <option value="haridwar">Delhi → Haridwar (~220km)</option>
-                            <option value="shimla">Delhi → Shimla (~345km)</option>
-                            <option value="chandigarh">Delhi → Chandigarh (~250km)</option>
-                            <option value="airport">Airport Transfer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="calc-result" id="calc-result">
-                    <div class="calc-price-display">
-                        <span class="calc-label">Estimated Price</span>
-                        <span class="calc-amount" id="calc-amount">₹1,500</span>
-                        <span class="calc-note" id="calc-note">Toll & parking extra · Driver included</span>
-                    </div>
-                    <a href="#" class="btn-yellow" id="calc-wa-btn" target="_blank">💬 Send to WhatsApp</a>
-                </div>
-            </div>
-        </section>
 
         <section id="gallery" class="gallery-section">
             <h2 class="section-title">Our Fleet / Gallery</h2>
-            
+
             <div class="gallery-slider-wrapper">
                 <button class="gallery-arrow left-arrow" onclick="slideGallery(-1)">&#10094;</button>
-                
+
                 <div class="gallery-track" id="galleryTrack">
-                    <img src="car1.jpg" alt="Car 1">
-                    <img src="car2.jpg" alt="Car 2">
-                    <img src="car3.jpg" alt="Car 3">
-                    <img src="car4.jpg" alt="Car 4">
-                    <img src="car5.jpg" alt="Car 5">
-                    <img src="car6.jpg" alt="Car 6">
+                    <img src="car1.jpg" alt="PPT Car Rental Fleet">
+                    <img src="car2.jpg" alt="Car Rental Delhi">
+                    <img src="car3.jpg" alt="Innova Crysta Rental Delhi">
+                    <img src="car4.jpg" alt="Swift Dzire Rental Delhi">
+                    <img src="car5.jpg" alt="Maruti Ertiga Rental Delhi">
+                    <img src="car6.jpg" alt="Tempo Traveller Delhi">
                 </div>
 
                 <button class="gallery-arrow right-arrow" onclick="slideGallery(1)">&#10095;</button>
@@ -807,37 +770,95 @@
             <div class="grid-2">
                 <div class="contact-form">
                     <form id="bookingForm">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="customer_name" required placeholder="Enter your name">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="customer_name" required placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" name="customer_phone" required placeholder="10-digit mobile number">
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="customer_email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Date &amp; Time of Travel</label>
+                                <input type="datetime-local" name="date_time" required>
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Select Car Type</label>
+                                <select name="car_type">
+                                    <option value="Swift Dzire / Etios (Sedan)">Swift Dzire / Etios (Sedan)</option>
+                                    <option value="Maruti Ertiga (SUV)">Maruti Ertiga (SUV)</option>
+                                    <option value="Toyota Innova Crysta (Premium)">Toyota Innova Crysta (Premium)</option>
+                                    <option value="Tempo Traveller (Group)">Tempo Traveller (Group)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Trip Type</label>
+                                <select name="trip_type">
+                                    <option value="Local (City)">Local (City)</option>
+                                    <option value="Outstation (One Way)">Outstation (One Way)</option>
+                                    <option value="Outstation (Round Trip)">Outstation (Round Trip)</option>
+                                    <option value="Airport Transfer">Airport Transfer</option>
+                                    <option value="Corporate / Full Day">Corporate / Full Day</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>📍 Pickup Location</label>
+                                <input type="text" name="pickup_location" required placeholder="e.g. Rohini Sector 34, Delhi">
+                            </div>
+                            <div class="form-group">
+                                <label>🏁 Drop Location</label>
+                                <input type="text" name="drop_location" required placeholder="e.g. IGI Airport / Agra / Jaipur">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" name="customer_phone" required placeholder="Enter your 10-digit mobile number">
+                            <label>Special Requests (Optional)</label>
+                            <textarea name="travel_query" rows="2" placeholder="Any special requests, stops, or instructions for the driver"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" name="customer_email" required placeholder="Enter your email address">
+
+                        <!-- PAYMENT SECTION -->
+                        <div class="payment-box">
+                            <h4 class="payment-title">💳 Advance Payment (Optional)</h4>
+                            <p class="payment-desc">Pay a small advance to confirm your booking instantly. Balance paid to driver on trip day.</p>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="advance_payment" value="none" checked onchange="togglePayment(this)">
+                                    <span>No advance — confirm via WhatsApp</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="advance_payment" value="200" onchange="togglePayment(this)">
+                                    <span>₹200 advance</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="advance_payment" value="500" onchange="togglePayment(this)">
+                                    <span>₹500 advance</span>
+                                </label>
+                            </div>
+                            <div id="razorpay-btn-wrap" style="display:none; margin-top:12px;">
+                                <button type="button" id="razorpay-btn" class="btn-razorpay" onclick="openRazorpay()">
+                                    💳 Pay Advance via UPI / Card
+                                </button>
+                                <p class="payment-note">Powered by Razorpay · 100% Secure</p>
+                            </div>
+                            <div id="payment-confirmed" style="display:none;" class="payment-confirmed-msg">
+                                ✅ Advance paid! Submit your booking below.
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Date & Time of Travel</label>
-                            <input type="datetime-local" name="date_time" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Select Car Type</label>
-                            <select name="car_type">
-                                <option>Compact Sedan</option>
-                                <option>Premium SUV</option>
-                                <option>Ertiga</option>
-                                <option>Tempo Traveller</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Pickup & Drop Location / Travel Query</label>
-                            <textarea name="travel_query" rows="3" required placeholder="Enter pickup, destination, and any specific queries"></textarea>
-                        </div>
-                        <button type="submit" class="btn-yellow full-width">Submit Booking Request</button>
-                        <p class="form-note">*Your booking details will be instantly emailed to us.</p>
+
+                        <button type="submit" class="btn-yellow full-width" id="submitBtn">
+                            🚗 Submit Booking Request
+                        </button>
+                        <p class="form-note">✅ You will receive an email confirmation · We will also contact you on WhatsApp within 30 minutes.</p>
                     </form>
                 </div>
 
@@ -885,120 +906,9 @@
     </a>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          emailjs.init("Pwuk1OluTYMPhVI83"); 
-       })();
-    </script>
 
-    <script>
-    // --- EmailJS Booking Form ---
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerText;
-        submitBtn.innerText = 'Sending Request...';
 
-        emailjs.sendForm('service_mp3z5wa', 'template_tgoh737', this)
-            .then(function() {
-                alert('Success! Your booking request has been sent to PawanPutra Travel.');
-                document.getElementById('bookingForm').reset();
-                submitBtn.innerText = originalText;
-            }, function(error) {
-                alert('FAILED to send message. Please try again or contact us on WhatsApp.');
-                console.log('EmailJS Error:', error);
-                submitBtn.innerText = originalText;
-            });
-    });
 
-    // --- About Us Image Carousel ---
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function changeSlide(direction) {
-        slides[currentSlideIndex].classList.remove('active');
-        currentSlideIndex += direction;
-        if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
-        else if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
-        slides[currentSlideIndex].classList.add('active');
-    }
-
-    // Auto-advance every 4 seconds
-    setInterval(() => changeSlide(1), 4000);
-
-    // --- Gallery Horizontal Scroll ---
-    function slideGallery(direction) {
-        const track = document.getElementById('galleryTrack');
-        track.scrollBy({ left: direction * 315, behavior: 'smooth' });
-    }
-
-    // --- Review Form ---
-    const reviewForm = document.getElementById('user-review-form');
-    if (reviewForm) {
-        reviewForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name   = document.getElementById('reviewer-name').value.trim();
-            const rating = document.getElementById('review-rating').value;
-            const text   = document.getElementById('review-text').value.trim();
-            const stars  = '⭐'.repeat(parseInt(rating));
-            const grid   = document.querySelector('.reviews-grid');
-            const card   = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `<div class="stars">${stars}</div><p>"${text}"</p><h4>- ${name}</h4>`;
-            grid.appendChild(card);
-            reviewForm.reset();
-            alert('Thank you for your review!');
-        });
-    }
-    </script>
-
-    <script>
-    // --- Price Calculator ---
-    const prices = {
-        local:       { sedan: 1500, ertiga: 1700, innova: 2200, tempo: 4000 },
-        agra:        { sedan: 2800, ertiga: 3200, innova: 4200, tempo: 7000 },
-        jaipur:      { sedan: 3500, ertiga: 4000, innova: 5200, tempo: 9000 },
-        haridwar:    { sedan: 2500, ertiga: 2900, innova: 3800, tempo: 6500 },
-        shimla:      { sedan: 5000, ertiga: 5800, innova: 7500, tempo: 12000 },
-        chandigarh:  { sedan: 3000, ertiga: 3500, innova: 4500, tempo: 8000 },
-        airport:     { sedan: 800,  ertiga: 1000, innova: 1400, tempo: 2500 },
-    };
-    const carNames = {
-        sedan: 'Swift Dzire/Etios',
-        ertiga: 'Maruti Ertiga',
-        innova: 'Toyota Innova Crysta',
-        tempo: 'Tempo Traveller'
-    };
-    const routeNames = {
-        local: 'Local Trip (80km/8hrs)',
-        agra: 'Delhi to Agra',
-        jaipur: 'Delhi to Jaipur',
-        haridwar: 'Delhi to Haridwar',
-        shimla: 'Delhi to Shimla',
-        chandigarh: 'Delhi to Chandigarh',
-        airport: 'Airport Transfer'
-    };
-
-    function calcPrice() {
-        const car   = document.getElementById('calc-car').value;
-        const type  = document.getElementById('calc-type').value;
-        const price = prices[type][car];
-        document.getElementById('calc-amount').textContent = '\u20B9' + price.toLocaleString('en-IN');
-        const msg = encodeURIComponent(
-            'Hi Pramod ji, I need a ' + carNames[car] +
-            ' for ' + routeNames[type] +
-            '. Estimated price shown is \u20B9' + price.toLocaleString('en-IN') +
-            '. Please confirm availability.'
-        );
-        document.getElementById('calc-wa-btn').href = 'https://wa.me/919650473759?text=' + msg;
-    }
-
-    // Run on page load + attach listeners
-    window.addEventListener('DOMContentLoaded', function() {
-        calcPrice();
-        document.getElementById('calc-car').addEventListener('change', calcPrice);
-        document.getElementById('calc-type').addEventListener('change', calcPrice);
-    });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

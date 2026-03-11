@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# New Sitemap Location
-Sitemap: https://pawanputratravels.ppt-delhi.workers.dev/sitemap.xml
+Sitemap: https://pawanputratravel.in/sitemap.xml

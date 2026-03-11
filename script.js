@@ -216,4 +216,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
+
+    // ── 8. LOADING SCREEN ────────────────────────────────────
+    const loader = document.getElementById('loader');
+    if (loader) {
+        setTimeout(function () { loader.classList.add('hidden'); }, 1600);
+    }
+
+    // ── 9. COOKIE CONSENT ────────────────────────────────────
+    const cookieBanner = document.getElementById('cookieBanner');
+    if (cookieBanner && !localStorage.getItem('ppt_cookies_accepted')) {
+        setTimeout(function () { cookieBanner.classList.add('visible'); }, 2000);
+    }
+    window.acceptCookies = function () {
+        localStorage.setItem('ppt_cookies_accepted', 'true');
+        if (cookieBanner) cookieBanner.classList.remove('visible');
+    };
+
+    // ── 10. BACK TO TOP ──────────────────────────────────────
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', function () {
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+        });
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ── 11. HAMBURGER MENU ───────────────────────────────────
+    window.toggleMenu = function () {
+        const nav     = document.getElementById('mainNav');
+        const burger  = document.getElementById('hamburger');
+        const overlay = document.getElementById('navOverlay');
+        const isOpen  = nav.classList.toggle('open');
+        burger.classList.toggle('open', isOpen);
+        overlay.classList.toggle('visible', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+    window.closeMenu = function () {
+        document.getElementById('mainNav').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('navOverlay').classList.remove('visible');
+        document.body.style.overflow = '';
+    };
+
 }); // end DOMContentLoaded

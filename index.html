@@ -91,25 +91,49 @@
 
 <body>
 
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-inner">
+            <img src="logo.png" alt="PawanPutra Travel" class="loader-logo">
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+            <p class="loader-text">PawanPutra Travel</p>
+        </div>
+    </div>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-inner">
+            <p>We use cookies to improve your experience. By using this site you agree to our use of cookies.</p>
+            <button class="cookie-accept" onclick="acceptCookies()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop" class="back-to-top" title="Back to top">&#8679;</button>
+
     <header>
         <div class="logo">
             <img src="logo.png" alt="PPT Logo">
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#fleet">Our Fleet</a></li>
-                <li><a href="#areas">Service Areas</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About Us</a></li>
+                <li><a href="#clients" onclick="closeMenu()">Clients</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+                <li><a href="#fleet" onclick="closeMenu()">Our Fleet</a></li>
+                <li><a href="#areas" onclick="closeMenu()">Service Areas</a></li>
+                <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+                <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
-        <a href="#contact" class="btn-yellow">Book Now</a>
+        <a href="#contact" class="btn-yellow desktop-book">Book Now</a>
     </header>
+    <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
     <section id="home" class="hero">
         <!-- ============================================================ -->

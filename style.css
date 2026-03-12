@@ -1873,27 +1873,36 @@ td {
     .hamburger { display: flex; }
     .desktop-book { display: none; }
 
+    /* Nav completely hidden off screen - does NOT affect page layout */
     #mainNav {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 75%;
+        width: 78%;
         max-width: 300px;
         height: 100vh;
         background: #faf7f2;
         box-shadow: -4px 0 20px rgba(0,0,0,0.12);
         z-index: 1000;
         transition: right 0.35s ease;
-        padding-top: 70px;
+        padding-top: 66px;
         overflow-y: auto;
+        /* Critical: never affects page width */
+        margin: 0 !important;
+        flex: none !important;
     }
     #mainNav.open {
         right: 0;
     }
     #mainNav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    #mainNav ul li {
+        width: 100%;
     }
     #mainNav ul li a {
         display: block;
@@ -1902,10 +1911,21 @@ td {
         border-bottom: 1px solid #f0f0f0;
         color: var(--text-dark);
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
-    #mainNav ul li a:hover {
+    #mainNav ul li a:hover,
+    #mainNav ul li a:active {
         background: #f5efe4;
         color: #a07030;
+    }
+    /* Header stays single row, no wrapping */
+    header {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        padding: 10px 16px !important;
+        justify-content: space-between !important;
     }
 }
 
@@ -2546,4 +2566,79 @@ header.scrolled {
     .why-grid { grid-template-columns: 1fr !important; }
     .spec-grid { grid-template-columns: 1fr 1fr !important; }
     .fare-car-btn small { display: inline !important; margin-left: 8px !important; }
+}
+
+/* ══════════════════════════════════════════
+   MOBILE FIXES v2 (from phone screenshots)
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* Body never shifts sideways */
+    body { overflow-x: hidden !important; }
+    html { overflow-x: hidden !important; }
+
+    /* Why cards — bigger text, readable */
+    .why-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 14px 16px !important;
+        text-align: left !important;
+    }
+    .why-icon {
+        font-size: 2rem !important;
+        flex-shrink: 0 !important;
+        width: 44px !important;
+    }
+    .why-card-text { flex: 1 !important; }
+    .why-card h3 { font-size: 14px !important; font-weight: 700 !important; margin-bottom: 3px !important; }
+    .why-card p  { font-size: 12px !important; line-height: 1.5 !important; color: #666 !important; }
+    .why-grid    { grid-template-columns: 1fr !important; gap: 8px !important; }
+
+    /* Footer — cleaner, less text overflow */
+    .site-footer { padding: 20px 16px !important; text-align: center !important; }
+    .site-footer p { font-size: 11px !important; line-height: 1.7 !important; margin-bottom: 6px !important; }
+
+    /* Contact section full width */
+    .contact-grid { display: flex !important; flex-direction: column !important; gap: 16px !important; }
+    .contact-form, .contact-details { width: 100% !important; box-sizing: border-box !important; }
+
+    /* Map responsive */
+    .map-wrapper iframe { width: 100% !important; }
+
+    /* Book Now btn full width on mobile */
+    .contact-form .btn-yellow {
+        width: 100% !important;
+        display: block !important;
+        text-align: center !important;
+        padding: 14px !important;
+        font-size: 16px !important;
+        border-radius: 8px !important;
+    }
+
+    /* Advance payment options stack */
+    .advance-options {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .advance-option {
+        width: 100% !important;
+    }
+
+    /* Gallery arrows bigger tap target */
+    .left-arrow, .right-arrow {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 16px !important;
+    }
+
+    /* Review form full width */
+    .review-form input,
+    .review-form textarea {
+        font-size: 16px !important;
+    }
+
+    /* Spacing fix — sections should touch, no gaps */
+    .trust-bar { margin-bottom: 0 !important; }
 }

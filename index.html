@@ -145,9 +145,21 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://api.emailjs.com">
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+body{background:#f2ede6;color:#333;line-height:1.6}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,242,0.75);backdrop-filter:blur(16px);padding:15px 50px;display:flex;align-items:center;justify-content:space-between}
+.logo img{height:55px;width:auto}
+.hero{position:relative;text-align:center;padding:130px 20px;overflow:hidden;background:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:-10px;background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.35),rgba(10,10,10,0.5))}
+.hero-content{position:relative;z-index:2;width:100%}
+.hero h1{font-size:2.5rem;color:#fff;margin-bottom:10px}
+.hero h1 span{color:#FFCC00}
+#loader{position:fixed;inset:0;background:#111;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity 0.6s ease,visibility 0.6s ease}
+</style>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -316,7 +328,7 @@
             </tr>
         </tbody>
     </table>
-    <p class="pricing-note">✅ All prices include driver &nbsp;·&nbsp; 🚧 Toll, parking & state taxes charged at actuals &nbsp;·&nbsp; 🛣️ Outstation limit: 250 km/day &nbsp;·&nbsp; ❌ No hidden fees</p>
+    <p class="pricing-note">✅ Driver &amp; fuel included &nbsp;·&nbsp; ✅ Toll included &nbsp;·&nbsp; ❌ Parking extra &nbsp;·&nbsp; ❌ Driver night charge extra &nbsp;·&nbsp; 🛣️ Outstation: 250 km/day</p>
 </section>
 
         <section id="fleet" class="fleet-section">
@@ -573,12 +585,12 @@
                 <div class="area-group">
                     <h4>🗺️ Outstation (Popular Routes)</h4>
                     <ul>
-                        <li>Delhi → Agra &nbsp;<span class="route-price">from ₹2,800</span></li>
-                        <li>Delhi → Jaipur &nbsp;<span class="route-price">from ₹3,500</span></li>
-                        <li>Delhi → Haridwar &nbsp;<span class="route-price">from ₹2,500</span></li>
-                        <li>Delhi → Shimla &nbsp;<span class="route-price">from ₹5,000</span></li>
-                        <li>Delhi → Chandigarh &nbsp;<span class="route-price">from ₹3,000</span></li>
-                        <li>Delhi → Manali &nbsp;<span class="route-price">from ₹8,000</span></li>
+                        <li>Delhi → Agra &nbsp;<span class="route-price">Get Quote</span></li>
+                        <li>Delhi → Jaipur &nbsp;<span class="route-price">Get Quote</span></li>
+                        <li>Delhi → Haridwar &nbsp;<span class="route-price">Get Quote</span></li>
+                        <li>Delhi → Shimla &nbsp;<span class="route-price">Get Quote</span></li>
+                        <li>Delhi → Chandigarh &nbsp;<span class="route-price">Get Quote</span></li>
+                        <li>Delhi → Manali &nbsp;<span class="route-price">Get Quote</span></li>
                     </ul>
                 </div>
                 <div class="area-group">
@@ -649,98 +661,123 @@
             </div>
         </section>
 
-        <!-- ── OUTSTATION ROUTE CARDS ── -->
-        <section class="routes-section">
-            <h2 class="section-title anim-blur">Popular Outstation Routes</h2>
-            <p class="routes-intro">All outstation packages include driver, fuel &amp; 250 km/day. Toll &amp; parking extra.</p>
+        <!-- ── OUTSTATION ROUTE CALCULATOR ── -->
+        <section class="routes-section" id="route-calc">
+            <h2 class="section-title anim-blur">Outstation Trip Fare Calculator</h2>
+            <p class="routes-intro">Select your destination &amp; car — get instant fare estimate. Driver, fuel &amp; toll included. Parking &amp; driver night charges extra.</p>
+
+            <!-- Route Cards Grid -->
             <div class="routes-grid">
-                <div class="route-card anim-fade-left anim-delay-1">
+                <div class="route-card anim-fade-left anim-delay-1 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Agra" data-km="460" data-hrs="8" data-icon="🕌" data-place="Taj Mahal">
                     <div class="route-icon">🕌</div>
                     <div class="route-info">
                         <h4>Delhi → Agra</h4>
-                        <p>~230 km · ~4 hrs · Taj Mahal</p>
+                        <p>460 km round trip · ~8 hrs · Taj Mahal</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹2,800</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Agra.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-2">
+                <div class="route-card anim-fade-left anim-delay-2 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Jaipur" data-km="560" data-hrs="10" data-icon="🏯" data-place="Pink City">
                     <div class="route-icon">🏯</div>
                     <div class="route-info">
                         <h4>Delhi → Jaipur</h4>
-                        <p>~280 km · ~5 hrs · Pink City</p>
+                        <p>560 km round trip · ~10 hrs · Pink City</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹3,500</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Jaipur.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-3">
+                <div class="route-card anim-fade-left anim-delay-3 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Haridwar" data-km="440" data-hrs="9" data-icon="🏔️" data-place="Holy Ghats">
                     <div class="route-icon">🏔️</div>
                     <div class="route-info">
                         <h4>Delhi → Haridwar</h4>
-                        <p>~220 km · ~4 hrs · Holy Ghats</p>
+                        <p>440 km round trip · ~9 hrs · Holy Ghats</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹2,500</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Haridwar.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-4">
+                <div class="route-card anim-fade-left anim-delay-4 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Shimla" data-km="690" data-hrs="14" data-icon="🌲" data-place="Hill Station">
                     <div class="route-icon">🌲</div>
                     <div class="route-info">
                         <h4>Delhi → Shimla</h4>
-                        <p>~345 km · ~7 hrs · Hill Station</p>
+                        <p>690 km round trip · ~14 hrs · Hill Station</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹5,000</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Shimla.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-5">
+                <div class="route-card anim-fade-left anim-delay-5 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Chandigarh" data-km="500" data-hrs="9" data-icon="🏙️" data-place="Garden City">
                     <div class="route-icon">🏙️</div>
                     <div class="route-info">
                         <h4>Delhi → Chandigarh</h4>
-                        <p>~250 km · ~4.5 hrs · Garden City</p>
+                        <p>500 km round trip · ~9 hrs · Garden City</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹3,000</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Chandigarh.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-6">
+                <div class="route-card anim-fade-left anim-delay-6 route-selectable" onclick="selectRoute(this)" data-route="Delhi → Manali" data-km="1080" data-hrs="24" data-icon="❄️" data-place="Snow Valley">
                     <div class="route-icon">❄️</div>
                     <div class="route-info">
                         <h4>Delhi → Manali</h4>
-                        <p>~540 km · ~12 hrs · Snow Valley</p>
+                        <p>1080 km round trip · ~24 hrs · Snow Valley</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹8,000</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20cab%20from%20Delhi%20to%20Manali.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card anim-fade-left anim-delay-6">
+                <div class="route-card anim-fade-left anim-delay-6 route-selectable" onclick="selectRoute(this)" data-route="Airport Transfer" data-km="60" data-hrs="2" data-icon="✈️" data-place="IGI Airport">
                     <div class="route-icon">✈️</div>
                     <div class="route-info">
                         <h4>Airport Transfer</h4>
-                        <p>IGI Airport · Any time · Flight tracking</p>
+                        <p>~60 km · ~2 hrs · IGI Airport</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">from ₹800</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20an%20airport%20transfer.%20Please%20share%20availability%20and%20pricing." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
                 </div>
-                <div class="route-card route-card--custom">
+                <div class="route-card route-card--custom anim-fade-left anim-delay-6 route-selectable" onclick="selectRoute(this)" data-route="Custom Route" data-km="0" data-hrs="0" data-icon="📍" data-place="Your Destination">
                     <div class="route-icon">📍</div>
                     <div class="route-info">
                         <h4>Custom Route</h4>
-                        <p>Any destination · Any duration · Any car</p>
+                        <p>Any destination · Any duration</p>
                     </div>
                     <div class="route-right">
-                        <div class="route-price-tag">Get Quote</div>
-                        <a href="https://wa.me/919650473759?text=Hi%20Pramod%20ji%2C%20I%20need%20a%20custom%20cab%20booking.%20Please%20help%20me%20with%20a%20quote." class="btn-wa-route" target="_blank" rel="noopener noreferrer">💬 Book</a>
+                        <div class="route-selected-badge">Tap to select</div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Fare Calculator Box -->
+            <div class="fare-calc-box anim-fade-up" id="fareCalcBox" style="display:none;">
+                <div class="fare-calc-header">
+                    <span id="fareRouteIcon"></span>
+                    <div>
+                        <h3 id="fareRouteName"></h3>
+                        <p id="fareRouteDetail"></p>
+                    </div>
+                </div>
+                <p class="fare-calc-label">Choose your car:</p>
+                <div class="fare-car-options">
+                    <button class="fare-car-btn" onclick="selectCar(this,'Dzire / Etios',15)" data-rate="15">
+                        🚗 Dzire / Etios<br><small>₹15/km</small>
+                    </button>
+                    <button class="fare-car-btn" onclick="selectCar(this,'Ertiga',17)" data-rate="17">
+                        🚙 Ertiga<br><small>₹17/km</small>
+                    </button>
+                    <button class="fare-car-btn" onclick="selectCar(this,'Innova Crysta',22)" data-rate="22">
+                        🛻 Innova Crysta<br><small>₹22/km</small>
+                    </button>
+                </div>
+                <div class="fare-result" id="fareResult" style="display:none;">
+                    <div class="fare-amount">
+                        <span class="fare-label">Estimated Fare</span>
+                        <span class="fare-price" id="farePriceDisplay"></span>
+                        <span class="fare-note">Driver, fuel &amp; toll included &nbsp;·&nbsp; Parking &amp; driver night charges extra</span>
+                    </div>
+                    <a class="btn-yellow fare-book-btn" id="fareBookBtn" target="_blank" rel="noopener noreferrer">💬 Book This on WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -1041,6 +1078,6 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

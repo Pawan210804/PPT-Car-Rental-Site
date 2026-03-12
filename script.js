@@ -221,7 +221,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // ── 8. LOADING SCREEN ────────────────────────────────────
     const loader = document.getElementById('loader');
     if (loader) {
-        setTimeout(function () { loader.classList.add('hidden'); }, 1600);
+        var loaderDone = false;
+        var pageDone = false;
+        var minTime = 2500; // minimum ms to show loader
+
+        function tryHideLoader() {
+            if (loaderDone && pageDone) {
+                loader.classList.add('hidden');
+            }
+        }
+        // Minimum display time
+        setTimeout(function() {
+            loaderDone = true;
+            tryHideLoader();
+        }, minTime);
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            pageDone = true;
+            tryHideLoader();
+        });
     }
 
     // ── 9. COOKIE CONSENT ────────────────────────────────────
@@ -291,5 +309,87 @@ document.addEventListener('DOMContentLoaded', function () {
             siteHeader.classList.remove('scrolled');
         }
     });
+
+
+    // ── 14. ROUTE FARE CALCULATOR ────────────────────────────
+    var selectedRouteData = null;
+    var selectedCarRate   = null;
+    var selectedCarName   = null;
+
+    window.selectRoute = function (card) {
+        // Deselect all cards
+        document.querySelectorAll('.route-selectable').forEach(function(c) {
+            c.classList.remove('selected');
+            c.querySelector('.route-selected-badge').textContent = 'Tap to select';
+        });
+
+        // Select this card
+        card.classList.add('selected');
+        card.querySelector('.route-selected-badge').textContent = '✓ Selected';
+
+        // Store route data
+        selectedRouteData = {
+            name  : card.dataset.route,
+            km    : parseInt(card.dataset.km),
+            hrs   : card.dataset.hrs,
+            icon  : card.dataset.icon,
+            place : card.dataset.place
+        };
+
+        // Reset car selection & result
+        selectedCarRate = null;
+        selectedCarName = null;
+        document.querySelectorAll('.fare-car-btn').forEach(function(b) { b.classList.remove('selected'); });
+        document.getElementById('fareResult').style.display = 'none';
+
+        // Update and show calc box
+        document.getElementById('fareRouteIcon').textContent = selectedRouteData.icon;
+        document.getElementById('fareRouteName').textContent = selectedRouteData.name;
+
+        if (selectedRouteData.km > 0) {
+            document.getElementById('fareRouteDetail').textContent =
+                selectedRouteData.km + ' km round trip · ~' + selectedRouteData.hrs + ' hrs · ' + selectedRouteData.place;
+        } else {
+            document.getElementById('fareRouteDetail').textContent = "Tell us your destination — we'll give you a custom quote!";
+        }
+
+        var box = document.getElementById('fareCalcBox');
+        box.style.display = 'block';
+        setTimeout(function() {
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    };
+
+    window.selectCar = function (btn, carName, ratePerKm) {
+        document.querySelectorAll('.fare-car-btn').forEach(function(b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        selectedCarRate = ratePerKm;
+        selectedCarName = carName;
+        showFare();
+    };
+
+    function showFare() {
+        if (!selectedRouteData || !selectedCarRate) return;
+
+        var result = document.getElementById('fareResult');
+        var priceDisplay = document.getElementById('farePriceDisplay');
+        var bookBtn = document.getElementById('fareBookBtn');
+
+        if (selectedRouteData.km === 0) {
+            // Custom route
+            priceDisplay.textContent = 'Custom';
+            var waText = 'Hi Pramod ji, I need a custom cab booking with ' + selectedCarName + '. Please share availability and pricing.';
+            bookBtn.href = 'https://wa.me/919650473759?text=' + encodeURIComponent(waText);
+        } else {
+            var fare = selectedRouteData.km * selectedCarRate;
+            // Round to nearest 50
+            fare = Math.round(fare / 50) * 50;
+            priceDisplay.textContent = '₹' + fare.toLocaleString('en-IN');
+            var waText = 'Hi Pramod ji, I want to book a ' + selectedCarName + ' for ' + selectedRouteData.name + ' (' + selectedRouteData.km + ' km round trip). Estimated fare shown: ₹' + fare.toLocaleString('en-IN') + '. Please confirm availability.';
+            bookBtn.href = 'https://wa.me/919650473759?text=' + encodeURIComponent(waText);
+        }
+
+        result.style.display = 'flex';
+    }
 
 }); // end DOMContentLoaded

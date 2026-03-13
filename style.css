@@ -2701,15 +2701,16 @@ header.scrolled {
    HOW IT WORKS
 ══════════════════════════════════════════ */
 .how-section {
-    padding: 56px 20px;
+    padding: 40px 20px;
     background: var(--bg-light);
     text-align: center;
 }
 .how-intro {
     color: var(--text-light);
-    margin-bottom: 36px;
-    font-size: 15px;
+    margin-bottom: 32px;
+    font-size: 14px;
 }
+/* Desktop — horizontal 3 cards with arrows */
 .how-grid {
     max-width: 900px;
     margin: 0 auto;
@@ -2723,11 +2724,12 @@ header.scrolled {
     max-width: 240px;
     background: rgba(250,247,242,0.95);
     border-radius: 16px;
-    padding: 32px 24px;
+    padding: 32px 20px 24px;
     position: relative;
     border: 1px solid rgba(200,175,140,0.2);
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 .how-card:hover {
     transform: translateY(-6px);
@@ -2750,31 +2752,78 @@ header.scrolled {
     justify-content: center;
 }
 .how-icon {
-    font-size: 2.4rem;
-    margin-bottom: 14px;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
 }
 .how-card h3 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: var(--text-dark);
 }
 .how-card p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-light);
     line-height: 1.6;
 }
 .how-connector {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--primary-yellow);
-    padding: 0 12px;
+    padding: 0 10px;
     font-weight: 900;
-    margin-top: -20px;
+    flex-shrink: 0;
+    margin-top: -10px;
 }
+
+/* Mobile — clean vertical timeline */
 @media (max-width: 700px) {
-    .how-grid { flex-direction: column; gap: 20px; }
-    .how-connector { transform: rotate(90deg); margin: -8px 0; }
-    .how-card { max-width: 100%; width: 100%; }
+    .how-section { padding: 32px 16px; }
+    .how-grid {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        max-width: 400px;
+    }
+    .how-card {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 20px 16px 20px 20px;
+        border-radius: 12px;
+        gap: 14px;
+    }
+    .how-number {
+        position: static;
+        transform: none;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        border-radius: 50%;
+    }
+    .how-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    .how-card-text { flex: 1; }
+    .how-card h3 { font-size: 14px; margin-bottom: 3px; }
+    .how-card p  { font-size: 12px; }
+    /* Connector becomes vertical dotted line */
+    .how-connector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        padding: 4px 0;
+        margin: 0;
+        color: var(--primary-yellow);
+        transform: rotate(90deg);
+        height: 28px;
+    }
 }
 
 /* ══════════════════════════════════════════

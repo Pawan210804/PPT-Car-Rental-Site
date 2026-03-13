@@ -218,7 +218,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
         <!-- ============================================================ -->
         <div class="hero-bg" style="background-image: url('hero-bg.jpg');"></div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content">----------------------------------------------------------------------------------------------
             <div class="hero-glass-card">
                 <h1><span>PawanPutra</span> Travel</h1>
                 <h3>CAR RENTAL &amp; CAB BOOKING IN DELHI NCR</h3>
@@ -1090,6 +1090,17 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
                                     <input type="radio" name="advance_payment" value="500" onchange="togglePayment(this)">
                                     <span>₹500 advance</span>
                                 </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="advance_payment" value="custom" onchange="togglePayment(this)">
+                                    <span>Custom amount</span>
+                                </label>
+                            </div>
+                            <div id="custom-amount-wrap" style="display:none; margin-top:10px;">
+                                <div class="custom-amount-box">
+                                    <span class="custom-rupee">₹</span>
+                                    <input type="number" id="custom-amount-input" placeholder="Enter amount" min="100" max="50000" oninput="updateCustomAmount()">
+                                </div>
+                                <p class="custom-amount-note">Minimum ₹100 · Maximum ₹50,000</p>
                             </div>
                             <div id="razorpay-btn-wrap" style="display:none; margin-top:12px;">
                                 <button type="button" id="razorpay-btn" class="btn-razorpay" onclick="openRazorpay()">

@@ -46,18 +46,39 @@ document.addEventListener('DOMContentLoaded', function () {
     let advanceAmount = 0;
 
     window.togglePayment = function (radio) {
-        const wrap      = document.getElementById('razorpay-btn-wrap');
-        const confirmed = document.getElementById('payment-confirmed');
+        const wrap        = document.getElementById('razorpay-btn-wrap');
+        const confirmed   = document.getElementById('payment-confirmed');
+        const customWrap  = document.getElementById('custom-amount-wrap');
+        advancePaid = false;
+        confirmed.style.display = 'none';
+
         if (radio.value === 'none') {
-            wrap.style.display = 'none';
-            confirmed.style.display = 'none';
-            advancePaid   = false;
+            wrap.style.display       = 'none';
+            customWrap.style.display = 'none';
+            advanceAmount = 0;
+        } else if (radio.value === 'custom') {
+            customWrap.style.display = 'block';
+            wrap.style.display       = 'none'; // show after valid amount entered
             advanceAmount = 0;
         } else {
-            wrap.style.display = 'block';
-            confirmed.style.display = 'none';
-            advancePaid   = false;
+            customWrap.style.display = 'none';
+            wrap.style.display       = 'block';
             advanceAmount = parseInt(radio.value);
+        }
+    };
+
+    window.updateCustomAmount = function () {
+        const input  = document.getElementById('custom-amount-input');
+        const wrap   = document.getElementById('razorpay-btn-wrap');
+        const val    = parseInt(input.value);
+        if (val >= 100 && val <= 50000) {
+            advanceAmount        = val;
+            wrap.style.display   = 'block';
+            input.style.border   = '2px solid #4CAF50';
+        } else {
+            advanceAmount        = 0;
+            wrap.style.display   = 'none';
+            input.style.border   = val ? '2px solid #e74c3c' : '';
         }
     };
 

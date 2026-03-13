@@ -392,4 +392,45 @@ document.addEventListener('DOMContentLoaded', function () {
         result.style.display = 'flex';
     }
 
+
+    // ── 15. STATS COUNTER ANIMATION ──────────────────────────
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                const duration = 1800;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(function() {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = Math.floor(current).toLocaleString('en-IN');
+                }, 16);
+                statsObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    statNumbers.forEach(function(el) { statsObserver.observe(el); });
+
+    // ── 16. HERO QUICK BOOK ───────────────────────────────────
+    window.heroQuickBook = function() {
+        const route = document.getElementById('hqbRoute').value;
+        const car   = document.getElementById('hqbCar').value;
+        if (!route && !car) {
+            // Just scroll to contact form
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+        var text = 'Hi Pramod ji, I want to book a cab.';
+        if (route) text += ' Route: ' + route + '.';
+        if (car)   text += ' Car: ' + car + '.';
+        text += ' Please share availability and pricing.';
+        window.open('https://wa.me/919650473759?text=' + encodeURIComponent(text), '_blank');
+    };
+
 }); // end DOMContentLoaded

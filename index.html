@@ -225,6 +225,28 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
                 <p>Elevate Your Journey. Premium, transparent, and hassle-free car rentals across Delhi and beyond.</p>
                 <a href="#contact" class="btn-yellow" style="touch-action:manipulation">Book Your Cab</a>
             </div>
+            <!-- Quick booking bar -->
+            <div class="hero-quick-book anim-fade-up">
+                <select class="hqb-select" id="hqbRoute">
+                    <option value="">📍 Where to go?</option>
+                    <option>Delhi → Agra</option>
+                    <option>Delhi → Jaipur</option>
+                    <option>Delhi → Haridwar</option>
+                    <option>Delhi → Shimla</option>
+                    <option>Delhi → Chandigarh</option>
+                    <option>Delhi → Manali</option>
+                    <option>Airport Transfer</option>
+                    <option>Local City Trip</option>
+                </select>
+                <select class="hqb-select" id="hqbCar">
+                    <option value="">🚗 Choose Car</option>
+                    <option>Swift Dzire / Etios</option>
+                    <option>Maruti Ertiga</option>
+                    <option>Toyota Innova Crysta</option>
+                    <option>Tempo Traveller</option>
+                </select>
+                <button class="hqb-btn" onclick="heroQuickBook()">Get Quote →</button>
+            </div>
         </div>
     </section>
 
@@ -243,6 +265,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
         </div>
     </div>
 
+    <!-- ── HOW IT WORKS ── -->
     <div class="container">        <section id="about">
             <h2 class="section-title anim-blur">About Us</h2>
             
@@ -275,6 +298,33 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
                 </div>
             </div>
         </section>
+
+
+    <!-- ── STATS COUNTER ── -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item anim-fade-up anim-delay-1">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item anim-fade-up anim-delay-2">
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item anim-fade-up anim-delay-3">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Trips Completed</div>
+            </div>
+            <div class="stat-item anim-fade-up anim-delay-4">
+                <div class="stat-number" data-target="10">0</div>
+                <div class="stat-plus">+</div>
+                <div class="stat-label">Cities Covered</div>
+            </div>
+        </div>
+    </section>
 
         <section id="clients" class="clients-section">
             <h2 class="section-title anim-blur">Trusted By</h2>
@@ -848,6 +898,35 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
                 <button class="gallery-arrow right-arrow" onclick="slideGallery(1)">&#10095;</button>
             </div>
         </section>
+
+        <!-- ── HOW IT WORKS ── -->
+        <section class="how-section">
+            <h2 class="section-title anim-blur">How It Works</h2>
+            <p class="how-intro">Book your cab in 3 simple steps — takes less than 2 minutes</p>
+            <div class="how-grid">
+                <div class="how-card anim-fade-up anim-delay-1">
+                    <div class="how-number">1</div>
+                    <div class="how-icon">📋</div>
+                    <h3>Fill the Form</h3>
+                    <p>Enter your pickup, drop, date, and preferred car in the booking form below</p>
+                </div>
+                <div class="how-connector">→</div>
+                <div class="how-card anim-fade-up anim-delay-2">
+                    <div class="how-number">2</div>
+                    <div class="how-icon">✅</div>
+                    <h3>Get Confirmed</h3>
+                    <p>We confirm your booking via WhatsApp within 30 minutes with driver details</p>
+                </div>
+                <div class="how-connector">→</div>
+                <div class="how-card anim-fade-up anim-delay-3">
+                    <div class="how-number">3</div>
+                    <div class="how-icon">🚗</div>
+                    <h3>Enjoy Your Ride</h3>
+                    <p>Your verified driver arrives on time. Sit back and enjoy a comfortable journey</p>
+                </div>
+            </div>
+        </section>
+
         <section id="reviews" class="container">
     <h2 class="section-title anim-blur">What Our Customers Say</h2>
     <div class="reviews-grid">
@@ -1050,6 +1129,21 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,
                 </div>
             </div>
         </section>
+    </div>
+
+
+    <!-- ── PAYMENT LOGOS ── -->
+    <div class="payment-strip">
+        <span class="payment-label">Secure Payments:</span>
+        <div class="payment-logos">
+            <span class="pay-badge">💳 UPI</span>
+            <span class="pay-badge">🏦 Net Banking</span>
+            <span class="pay-badge">💳 Visa</span>
+            <span class="pay-badge">💳 Mastercard</span>
+            <span class="pay-badge">📱 GPay</span>
+            <span class="pay-badge">📱 PhonePe</span>
+            <span class="pay-badge">💰 Cash</span>
+        </div>
     </div>
 
     <footer class="site-footer">

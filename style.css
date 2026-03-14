@@ -2481,7 +2481,6 @@ header.scrolled {
     /* ── Pricing table ── */
     .pricing-table { font-size: 12px !important; }
     .pricing-table th, .pricing-table td { padding: 8px 6px !important; }
-    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .pricing-note { font-size: 11px !important; line-height: 1.8 !important; }
 
     /* ── Fleet cards ── */
@@ -3087,4 +3086,179 @@ header.scrolled {
 
 @media (max-width: 600px) {
     .about-msme-item { min-width: 100%; }
+}
+
+/* ── PRICING SUB HEADINGS ── */
+.pricing-sub-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 16px 0 10px;
+    padding-left: 4px;
+}
+
+
+
+
+
+/* ══════════════════════════════════════════
+   MOBILE-FRIENDLY PRICING TABLES (.ptable)
+══════════════════════════════════════════ */
+.ptable {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    border: 1px solid rgba(200,175,140,0.25);
+    margin-bottom: 8px;
+}
+.ptable table {
+    width: 100%;
+    min-width: unset;
+    margin-bottom: 0;
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: none;
+}
+.ptable th {
+    font-size: 12px;
+    padding: 10px 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+.ptable td {
+    padding: 9px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.ptable td:first-child {
+    white-space: normal;
+    min-width: 130px;
+}
+.ptable tr.luxury-row td {
+    background: rgba(255,215,0,0.05);
+}
+.ptable tr.luxury-row td:first-child::before {
+    content: '⭐ ';
+    font-size: 10px;
+}
+.pricing-sub-note {
+    font-size: 11px;
+    color: #999;
+    margin: 4px 0 0 4px;
+}
+@media (max-width: 480px) {
+    .ptable th { font-size: 11px; padding: 8px 8px; }
+    .ptable td { font-size: 12px; padding: 8px 8px; }
+    .ptable td:first-child { min-width: 110px; }
+}
+
+/* ══════════════════════════════════════════
+   PRICING TABLES — MOBILE FRIENDLY
+══════════════════════════════════════════ */
+.ptable {
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(200,175,140,0.25);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.ptable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    box-shadow: none;
+    font-size: 13px;
+    table-layout: fixed;
+}
+.ptable th {
+    background: var(--primary-yellow);
+    color: #222;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 8px;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+}
+.ptable td {
+    padding: 9px 8px;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(200,175,140,0.15);
+    word-break: break-word;
+}
+.ptable td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+.ptable tbody tr:last-child td {
+    border-bottom: none;
+}
+.ptable tbody tr:hover td {
+    background: rgba(255,204,0,0.07);
+}
+.ptable tr.luxury-row td {
+    background: rgba(255,245,220,0.5);
+    font-style: italic;
+}
+.ptable tr.luxury-row:hover td {
+    background: rgba(255,204,0,0.1);
+}
+.pricing-sub-note {
+    font-size: 11px;
+    color: #aaa;
+    margin: 4px 0 16px;
+    padding-left: 4px;
+}
+
+/* Column widths — 4 col table */
+.ptable table th:nth-child(1),
+.ptable table td:nth-child(1) { width: 44%; }
+.ptable table th:nth-child(2),
+.ptable table td:nth-child(2) { width: 20%; }
+.ptable table th:nth-child(3),
+.ptable table td:nth-child(3) { width: 18%; }
+.ptable table th:nth-child(4),
+.ptable table td:nth-child(4) { width: 18%; }
+
+/* Mobile */
+@media (max-width: 600px) {
+    .ptable table { font-size: 12px; }
+    .ptable th { font-size: 11px; padding: 8px 5px; }
+    .ptable td { font-size: 12px; padding: 8px 5px; }
+    .ptable table th:nth-child(1),
+    .ptable table td:nth-child(1) { width: 40%; }
+    .ptable table th:nth-child(2),
+    .ptable table td:nth-child(2) { width: 22%; }
+    .ptable table th:nth-child(3),
+    .ptable table td:nth-child(3) { width: 19%; }
+    .ptable table th:nth-child(4),
+    .ptable table td:nth-child(4) { width: 19%; }
+    .pricing-sub-heading { font-size: 13px !important; }
+}
+
+/* ── MAIN PRICING TABLE MOBILE ── */
+#pricing table {
+    width: 100%;
+    display: table;
+}
+#pricing th, #pricing td {
+    padding: 10px 12px;
+    font-size: 13px;
+}
+#pricing .table-scroll-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 700px) {
+    #pricing .table-scroll-wrap {
+        display: block;
+    }
+    #pricing table {
+        display: block;
+        white-space: nowrap;
+        min-width: 560px;
+    }
+    #pricing th, #pricing td { font-size: 12px; padding: 8px 10px; }
 }
